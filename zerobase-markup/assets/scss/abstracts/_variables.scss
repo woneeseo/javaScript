@@ -1,0 +1,12 @@
+// font
+$font-default: -apple-system, BlinkMacSystemFont, helvetica, Apple SD Gothic Neo, sans-serif;
+
+// size
+// 공통으로 사용될 변수를 모두 모으는 곳 
+
+$m-padding: 18px;
+$place-tab-height: 46px;
+$place-header-height: 48px;
+
+$heder-height: $place-header-height + $place-tab-height;
+$order-box-area-height: 70px;

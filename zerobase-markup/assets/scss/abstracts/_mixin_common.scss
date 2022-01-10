@@ -1,0 +1,23 @@
+//텍스트가 영역보다 길 때 말줄임표로 표시되는 mixin
+@mixin ellipse { 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@mixin multi-ellipsis ($font-size, $line-height, $lines) {
+    font-size: $font-size;
+    line-height: $line-height;
+    max-height: $line-height * $lines;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical; /* autoprefixer: off */
+    // -webkit-box-orient 가 적용되지 않는 경우 주석으로 처리 된 /* autoprefixer: off */ 을 함께 적용해주어야지만 ... 이 적용된다
+}
+
+@mixin common-inner { // 가로폭이 넓어지더라도 컴포넌트가 가운데 정렬이 되도록 함
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 720px;
+}

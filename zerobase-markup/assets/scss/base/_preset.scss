@@ -1,0 +1,41 @@
+.screen-out {
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+// 가로스크롤을 가능하게 함
+.scroll-x {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap; // 어떤 영역을 벗어날 경우 영역 상관없이 쭉 이어지게 하겠다는 의미
+    --webkit-overflow-scrolling: touch;
+    // 모바일에서 터치로 스크롤링시 가속도가 붙은 스크롤링이 가능 
+    -ms-text-overflow-style: none; // ie에서 스크롤바를 없앰
+    scrollbar-width: none; // 파이어폭스에서 스크롤바 없앰
+    &::-webkit-scrollbar {
+        display: none;
+    } // 크롬에서 스크롤바를 없앰
+} // class로 묶고싶지 않으면 @mixin을 사용해도 상관없음
+
+body.scroll-off { // 팝업이 있는 경우 백그라운드영역이 스크롤되지 않게 함
+    overflow: hidden;
+    -ms-touch-action: none;
+    touch-action: none;
+}
+
+// functional CSS : 클래스명이 하나의 기능을 나타냄
+// 반복적으로 사용되는 스타일이 많은 경우, preset에 functional class를 미리 지정해 유지보수를 편리하게 할 수 있음
+.fw700 {
+    font-weight: 700;
+}
+
+.color-point {
+    color: $point-color;
+}
+
+// 자주 사용하는 스타일을 묶어서 클래스화. ex) 가로스크롤, 스크롤아웃 등을 해주는 기능등을 묶어 하나의 클래스로 생성
+// 늘 사용하는 스타일 패턴들을 묶어 적용해줄 수 있음 

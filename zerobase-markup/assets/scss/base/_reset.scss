@@ -1,0 +1,128 @@
+// 태그가 가지고 있는 기본 스타일을 모두 없애줌
+// 모든 프로젝트에서 기본적으로 필요함. 새 스타일을 적용하기 위해 모두 같은 상태로 스타일을 초기화 해주면 됨.
+// 보일러 플레이트 코드 : 변경하지 않고 계속하여 재사용할 수 있는 코드의 내용 (약간의 변경은 있으나 대부분 변경하지 않는다. 
+// reset.scss 또는 normalizer.scss로 검색하여 사용한다. -moz- 키워드는 파이어폭스에서 사용할 때 초기화 키워드
+// 무조건 복사하기 보다는 프로젝트에 맞게 설정하여 나만의 reset.scss를 만들어 사용하는것이 좋다.
+// (사용하지 않는 코드에 관해서까지 reset되어있기 때문에 코드의 낭비가 생길 수 있기 때문에)
+body {
+    min-width: 320px;
+    line-height: normal;
+    font-size: 14px;
+    color: $booking-color-text1;
+    scroll-behavior: smooth; // 스크롤시 크롬브라우저에서 부드럽게 넘어가도록
+    -webkit-font-smoothing: antialiased; // 크롬으로 접근시 맥 관련 디바이스에서 폰트가 약간 두껍고 흐리게 보이는 것을 밤지
+    -moz-osx-font-smoothing: grayscale; // 파이어폭스 관련 사용되는 속성값
+}
+
+body,
+input,
+textarea,
+select,
+table,
+button,
+code {
+    font-family: $font-default;
+    font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // 클릭시 약간 깜빡(번쩍)거리는것을 없애줌
+}
+
+.hidden,
+[hidden] {
+    display: none !important;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+a {
+    color: inherit; // 링크 파란색으로 글씨 표시되는것을 없애고 부모가 가진 폰트 색을 그대로 따르게 함
+    cursor: pointer;
+    text-decoration: none; // 링크의 언더라인을 삭제 
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+select,
+input,
+textarea,
+button {
+    -webkit-appearance: none; // 브라우저가 기본적으로 제공하는 textbox의 스타일을 제거
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input:disabled {
+    background-color: rgba(255, 255, 255, 0);
+    cursor: not-allowed;
+}
+
+select {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    &::-ms-expand {
+        display: none;
+    }
+}
+
+input,
+textarea {
+    font-size: inherit;
+    border: 0;
+    &::placeholder {
+        /* Chrome, Safari, Firefox */
+        color: #c9c9c9;
+        opacity: 1;
+    }
+    &:-ms-input-placeholder {
+        /* IE, Edge */
+        color: #c9c9c9;
+        opacity: 1;
+    }
+    &[readonly],
+    &:disabled {
+        &::placeholder {
+            /* Chrome, Safari, Firefox */
+            color: rgba(#000, 0.2);
+            opacity: 1;
+        }
+        &:-ms-input-placeholder {
+            /* IE, Edge */
+            color: rgba(#000, 0.2);
+            opacity: 1;
+        }
+    }
+    &::-ms-clear,
+    &::-ms-reveal {
+        /* IE, Edge */
+        display: none; // 인풋 클리어버튼(브라우저에서 제공함) 제거 
+    }
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+    }
+}

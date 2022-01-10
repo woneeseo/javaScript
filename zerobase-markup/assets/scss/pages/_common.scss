@@ -1,0 +1,44 @@
+// 여곳에서 사용되는 공통적인 css를 한데 모아둠 
+
+.container {
+    background-color: $booking-color-border151;
+    min-height: 100vh; // 모바일에서는 최소 높이가 디바이스에 꽉 차게 해주는 경우가 많아 적용해줌 vh보여지는 view에 꽉 차도록
+    &:not(.order) {
+        padding-top: $place-header-height + $place-tab-height;
+        padding-bottom: $order-box-area-height; // 주문담기영역이 컨텐츠를 가리지 않도록 주문영역만큼의 height를 bottom으로부터 떨어뜨려준다.
+    }
+}
+
+.common-inner {
+    margin: 0 auto;
+    max-width: 720px;
+}
+
+.dimmed-layer{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(#000, 0.8);
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    &.hidden {
+        opacity: 0;
+    }
+    &.light {
+        background-color: rgba(#000, 0.4);
+    }
+}
+
+.badge-popular { // '인기' 뱃지
+    display: inline-block;
+    padding: 0 5px;
+    border-radius: 10px;
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 700;
+    background-color: #ff61a7;
+    color: #fff;
+}

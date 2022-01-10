@@ -1,0 +1,68 @@
+.menu-list-area {
+    padding: 20px $m-padding 10px;
+    background-color: #fff;
+    &:not(.new):not(.popular) {
+        margin-top: 10px;
+        // :not(선택자) : 선택자가 아닌 경우에만 스타일을 적용하겠다는 의미, 이어서 써도 됨
+    }
+
+    &.new {
+        border-bottom: 1px solid $booking-color-border144;
+    }
+
+    &.is-closed {
+        padding: 24px $m-padding;
+        & + .is-closed {
+            margin-top: 0;
+            border-top: 1px solid $booking-color-border144;
+        }
+
+        .ico-arrow {
+            transform: rotate(180deg); //아코디언 메뉴 클릭해서 메뉴 리스트 나왔을 때, 화살표 방향을 아래에서 위로 바꿔줌
+        }
+
+        .menu-list {
+            display: none; // is-closed 상태인 경우 메뉴 리스트가 보이지 않아야하므로 감춰줌
+        }
+    }
+
+    .menu-category {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .title-area {
+        display: flex;
+        align-items: center;
+    }
+
+    .title {
+        font-size: 19px;
+        font-weight: 700;
+        color: $booking-color-text100;
+        letter-spacing: -0.3px;
+    }
+
+    .btn-toggle {
+        margin: -16px;
+        padding: 16px;
+    }
+
+    .period {
+        font-size: 14px;
+        letter-spacing: -0.3px;
+        color: $booking-color-text4;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            margin: 0 10px;
+            width: 4px;
+            height: 4px;
+            border-radius: 100%;
+            background-color: #ededed;
+            vertical-align: middle;
+        }
+    }
+}
